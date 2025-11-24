@@ -9,7 +9,10 @@ import {
   Pagination,
   Stack,
 } from "@mui/material";
-import { useQuestions } from "../../contexts/QuestionsContext";
+import {
+  difficultyMapper,
+  useQuestions,
+} from "../../contexts/QuestionsContext";
 
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
@@ -124,7 +127,13 @@ const QuestionsTable = () => {
                 <Typography variant="body2">{question.title}</Typography>
               </TableCell>
               <TableCell>
-                <Typography variant="body2">{question.difficulty}</Typography>
+                <Typography variant="body2">
+                  {
+                    difficultyMapper[
+                      question.difficulty as keyof typeof difficultyMapper
+                    ]
+                  }
+                </Typography>
               </TableCell>
               <TableCell>
                 <Typography variant="body2">{question.type}</Typography>

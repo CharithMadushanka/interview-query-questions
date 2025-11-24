@@ -1,6 +1,9 @@
 import { Box, Chip, Stack, Typography } from "@mui/material";
 import { useParams } from "react-router";
-import { useQuestions } from "../../contexts/QuestionsContext";
+import {
+  difficultyMapper,
+  useQuestions,
+} from "../../contexts/QuestionsContext";
 import WhatshotIcon from "@mui/icons-material/Whatshot";
 import CodeIcon from "@mui/icons-material/Code";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
@@ -18,7 +21,7 @@ const QuestionDetail = () => {
         return (
           <Chip
             icon={<WhatshotIcon />}
-            label="Difficulty: Easy"
+            label={`Difficulty: ${difficultyMapper[difficulty]}`}
             sx={{
               width: "fit-content",
               borderRadius: 2,
@@ -34,7 +37,7 @@ const QuestionDetail = () => {
         return (
           <Chip
             icon={<WhatshotIcon />}
-            label="Difficulty: Medium"
+            label={`Difficulty: ${difficultyMapper[difficulty]}`}
             color="warning"
             sx={{
               width: "fit-content",
@@ -51,7 +54,7 @@ const QuestionDetail = () => {
         return (
           <Chip
             icon={<WhatshotIcon fontSize="small" />}
-            label="Difficulty: Hard"
+            label={`Difficulty: ${difficultyMapper[difficulty]}`}
             color="error"
             sx={{
               width: "fit-content",

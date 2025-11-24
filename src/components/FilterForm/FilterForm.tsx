@@ -9,7 +9,10 @@ import {
   Typography,
 } from "@mui/material";
 import { useState } from "react";
-import { useQuestions } from "../../contexts/QuestionsContext";
+import {
+  difficultyMapper,
+  useQuestions,
+} from "../../contexts/QuestionsContext";
 import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from "@mui/icons-material/Clear";
 
@@ -99,7 +102,7 @@ const FilterForm = () => {
           >
             {difficultyOptions.map((difficulty) => (
               <MenuItem key={difficulty} value={difficulty}>
-                {difficulty}
+                {difficultyMapper[difficulty as keyof typeof difficultyMapper]}
               </MenuItem>
             ))}
           </TextField>

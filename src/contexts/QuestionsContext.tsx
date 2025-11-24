@@ -52,6 +52,12 @@ interface QuestionsContextType {
 
 const PAGE_SIZE = 10;
 
+export const difficultyMapper = {
+  "1": "Easy",
+  "2": "Medium",
+  "3": "Hard",
+};
+
 const QuestionsContext = createContext<QuestionsContextType | undefined>(
   undefined
 );
