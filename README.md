@@ -1,6 +1,14 @@
 # Interview Query Questions
 
-A web application for browsing, filtering, and viewing interview questions. This application provides an intuitive interface to explore coding interview questions with advanced filtering, sorting, and pagination capabilities.
+**Demo:** https://interview-query-questions-pmpf.vercel.app/
+
+## Overview
+
+This application is a question browser for coding interview questions. It lets users explore, filter, and view interview questions with search, filtering by difficulty/type/company, sorting, and pagination. The goal was to create an interface for efficiently navigating a large set of interview questions.
+
+The app uses React Context API for state management, keeping the architecture simple without external state libraries. Data is loaded from a CSV file using PapaParse, enabling client-side filtering and pagination. Material-UI provides a consistent UI, and TypeScript adds type safety across the codebase.
+
+With more time, I would add authentication, upvote and downvote features, topics for better categorization, question bookmarks, loading and error states, responsiveness for mobile devices, and unit tests for better code coverage.
 
 ## Features
 
@@ -18,7 +26,7 @@ A web application for browsing, filtering, and viewing interview questions. This
   - Question type
   - Vote count
   - Company that asked the question
-- 🎨 **Modern UI**: Built with Material-UI for a polished user experience
+- 🎨 **UI**: Built with Material-UI for a polished user experience
 
 ## Tech Stack
 
@@ -30,12 +38,14 @@ A web application for browsing, filtering, and viewing interview questions. This
 - **PapaParse** - CSV parsing
 - **Vitest** - Testing framework
 
-## Prerequisites
+## How to Run Locally
+
+### Prerequisites
 
 - Node.js (v18 or higher recommended)
 - npm or yarn
 
-## Installation
+### Installation
 
 1. Clone the repository:
 
@@ -50,11 +60,7 @@ cd interview-query-questions
 npm install
 ```
 
-## Usage
-
-### Development
-
-Start the development server:
+3. Start the development server:
 
 ```bash
 npm run dev
@@ -62,41 +68,14 @@ npm run dev
 
 The application will be available at `http://localhost:5173` (or the port shown in the terminal).
 
-### Build
+### Other Commands
 
-Build the application for production:
+- **Build for production**: `npm run build`
+- **Preview production build**: `npm run preview`
+- **Run linter**: `npm run lint`
+- **Run tests**: `npm test`
 
-```bash
-npm run build
-```
-
-The production build will be in the `dist` directory.
-
-### Preview Production Build
-
-Preview the production build locally:
-
-```bash
-npm run preview
-```
-
-### Linting
-
-Run ESLint to check for code issues:
-
-```bash
-npm run lint
-```
-
-### Testing
-
-Run tests with Vitest:
-
-```bash
-npm test
-```
-
-## Project Structure
+## Folder Structure
 
 ```
 interview-query-questions/
@@ -126,41 +105,3 @@ interview-query-questions/
 ├── vite.config.ts
 └── README.md
 ```
-
-## Data Format
-
-The application reads questions from `public/questions.csv`. The CSV should have the following columns:
-
-- `qid` - Unique question identifier
-- `title` - Question title
-- `difficulty` - Difficulty level (1=Easy, 2=Medium, 3=Hard)
-- `type` - Question type (e.g., SQL, Python, Algorithms)
-- `sum(cu.vote)` - Vote count
-- `question_summary` - Detailed question description
-- `company_asked` - Company name
-
-## Key Features Implementation
-
-### Context API
-
-The application uses React Context API (`QuestionsContext`) to manage global state for:
-
-- Question data loading and parsing
-- Filtering and searching
-- Sorting and pagination
-- Question retrieval by ID
-
-### CSV Parsing
-
-Questions are loaded from a CSV file using PapaParse, which handles:
-
-- Header parsing
-- Data transformation
-- Error handling
-
-### Routing
-
-React Router handles navigation between:
-
-- `/` - Questions list page
-- `/questions/:id` - Individual question detail page
