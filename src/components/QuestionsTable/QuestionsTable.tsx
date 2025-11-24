@@ -33,121 +33,125 @@ const QuestionsTable = () => {
 
   return (
     <Box>
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell sx={{ width: "30%" }}>
-              <Typography variant="body1" fontWeight={700}>
-                Title
-              </Typography>
-            </TableCell>
-            <TableCell
-              sx={{
-                width: "10%",
-                cursor: "pointer",
-                "&:hover": { backgroundColor: "#f0f0f0" },
-              }}
-              onClick={() => {
-                if (sortBy === "difficulty") {
-                  setSortOrder(sortOrder === "asc" ? "desc" : "asc");
-                } else {
-                  setSortBy("difficulty");
-                  setSortOrder("asc");
-                }
-              }}
-            >
-              <Stack direction="row" alignItems="center" columnGap={1}>
+      <Box sx={{ height: "588px" }}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell sx={{ width: "30%" }}>
                 <Typography variant="body1" fontWeight={700}>
-                  Difficulty
+                  Title
                 </Typography>
-                {sortBy === "difficulty" ? (
-                  sortOrder === "asc" ? (
-                    <KeyboardArrowUpIcon />
-                  ) : (
-                    <KeyboardArrowDownIcon />
-                  )
-                ) : null}
-              </Stack>
-            </TableCell>
-            <TableCell sx={{ width: "15%" }}>
-              <Typography variant="body1" fontWeight={700}>
-                Type
-              </Typography>
-            </TableCell>
-            <TableCell
-              sx={{
-                width: "10%",
-                cursor: "pointer",
-                "&:hover": { backgroundColor: "#f0f0f0" },
-              }}
-              onClick={() => {
-                if (sortBy === "votes") {
-                  setSortOrder(sortOrder === "asc" ? "desc" : "asc");
-                } else {
-                  setSortBy("votes");
-                  setSortOrder("asc");
-                }
-              }}
-            >
-              <Stack direction="row" alignItems="center" columnGap={1}>
-                <Typography variant="body1" fontWeight={700}>
-                  Votes
-                </Typography>
-                {sortBy === "votes" ? (
-                  sortOrder === "asc" ? (
-                    <KeyboardArrowUpIcon />
-                  ) : (
-                    <KeyboardArrowDownIcon />
-                  )
-                ) : null}
-              </Stack>
-            </TableCell>
-            <TableCell sx={{ width: "35%" }}>
-              <Typography variant="body1" fontWeight={700}>
-                Company
-              </Typography>
-            </TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {paginatedQuestions.map((question) => (
-            <TableRow
-              key={question.qid}
-              sx={{
-                cursor: "pointer",
-                "&:hover": {
-                  backgroundColor: "#f0f0f0",
-                },
-              }}
-              onClick={() => {
-                navigate(`/questions/${question.qid}`);
-              }}
-            >
-              <TableCell>
-                <Typography variant="body2">{question.title}</Typography>
               </TableCell>
-              <TableCell>
-                <Typography variant="body2">
-                  {
-                    difficultyMapper[
-                      question.difficulty as keyof typeof difficultyMapper
-                    ]
+              <TableCell
+                sx={{
+                  width: "10%",
+                  cursor: "pointer",
+                  "&:hover": { backgroundColor: "#f0f0f0" },
+                }}
+                onClick={() => {
+                  if (sortBy === "difficulty") {
+                    setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+                  } else {
+                    setSortBy("difficulty");
+                    setSortOrder("asc");
                   }
+                }}
+              >
+                <Stack direction="row" alignItems="center" columnGap={1}>
+                  <Typography variant="body1" fontWeight={700}>
+                    Difficulty
+                  </Typography>
+                  {sortBy === "difficulty" ? (
+                    sortOrder === "asc" ? (
+                      <KeyboardArrowUpIcon />
+                    ) : (
+                      <KeyboardArrowDownIcon />
+                    )
+                  ) : null}
+                </Stack>
+              </TableCell>
+              <TableCell sx={{ width: "15%" }}>
+                <Typography variant="body1" fontWeight={700}>
+                  Type
                 </Typography>
               </TableCell>
-              <TableCell>
-                <Typography variant="body2">{question.type}</Typography>
+              <TableCell
+                sx={{
+                  width: "10%",
+                  cursor: "pointer",
+                  "&:hover": { backgroundColor: "#f0f0f0" },
+                }}
+                onClick={() => {
+                  if (sortBy === "votes") {
+                    setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+                  } else {
+                    setSortBy("votes");
+                    setSortOrder("asc");
+                  }
+                }}
+              >
+                <Stack direction="row" alignItems="center" columnGap={1}>
+                  <Typography variant="body1" fontWeight={700}>
+                    Votes
+                  </Typography>
+                  {sortBy === "votes" ? (
+                    sortOrder === "asc" ? (
+                      <KeyboardArrowUpIcon />
+                    ) : (
+                      <KeyboardArrowDownIcon />
+                    )
+                  ) : null}
+                </Stack>
               </TableCell>
-              <TableCell>
-                <Typography variant="body2">{question.votes}</Typography>
-              </TableCell>
-              <TableCell>
-                <Typography variant="body2">{question.companyAsked}</Typography>
+              <TableCell sx={{ width: "35%" }}>
+                <Typography variant="body1" fontWeight={700}>
+                  Company
+                </Typography>
               </TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+          </TableHead>
+          <TableBody>
+            {paginatedQuestions.map((question) => (
+              <TableRow
+                key={question.qid}
+                sx={{
+                  cursor: "pointer",
+                  "&:hover": {
+                    backgroundColor: "#f0f0f0",
+                  },
+                }}
+                onClick={() => {
+                  navigate(`/questions/${question.qid}`);
+                }}
+              >
+                <TableCell>
+                  <Typography variant="body2">{question.title}</Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography variant="body2">
+                    {
+                      difficultyMapper[
+                        question.difficulty as keyof typeof difficultyMapper
+                      ]
+                    }
+                  </Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography variant="body2">{question.type}</Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography variant="body2">{question.votes}</Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography variant="body2">
+                    {question.companyAsked}
+                  </Typography>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </Box>
 
       {totalPages > 0 ? (
         <Stack
