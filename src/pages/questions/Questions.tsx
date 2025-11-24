@@ -1,6 +1,6 @@
 import { Box, Stack } from "@mui/material";
-import QuestionsTable from "../../components/QuestionsTable/QuestionsTable";
-import FilterForm from "../../components/FilterForm/FilterForm";
+import QuestionsTable from "components/QuestionsTable/QuestionsTable";
+import FilterForm from "components/FilterForm/FilterForm";
 
 const Questions = () => {
   return (

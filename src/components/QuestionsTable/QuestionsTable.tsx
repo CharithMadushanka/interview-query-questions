@@ -9,10 +9,7 @@ import {
   Pagination,
   Stack,
 } from "@mui/material";
-import {
-  difficultyMapper,
-  useQuestions,
-} from "../../contexts/QuestionsContext";
+import { difficultyMapper, useQuestions } from "contexts/QuestionsContext";
 
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";

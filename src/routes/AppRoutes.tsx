@@ -1,9 +1,9 @@
 import { Routes, Route } from "react-router";
 
-import Navbar from "../components/Navbar/Navbar";
+import Navbar from "components/Navbar/Navbar";
 
-import Questions from "../pages/questions/Questions";
-import QuestionDetail from "../pages/questionDetail/QuestionDetail";
+import Questions from "pages/questions/Questions";
+import QuestionDetail from "pages/questionDetail/QuestionDetail";
 import { Stack } from "@mui/material";
 
 const AppRoutes = () => {

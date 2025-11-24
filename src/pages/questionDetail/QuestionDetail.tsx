@@ -1,12 +1,9 @@
 import { Box, Chip, Stack, Typography } from "@mui/material";
 import { useParams } from "react-router";
-import {
-  difficultyMapper,
-  useQuestions,
-} from "../../contexts/QuestionsContext";
-import WhatshotIcon from "@mui/icons-material/Whatshot";
+import { useQuestions } from "contexts/QuestionsContext";
 import CodeIcon from "@mui/icons-material/Code";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
+import DifficultyChip from "components/DifficultyChip/DifficultyChip";
 
 const QuestionDetail = () => {
   const { id } = useParams();
@@ -14,61 +11,6 @@ const QuestionDetail = () => {
   const { getQuestionById } = useQuestions();
 
   const question = id ? getQuestionById(id) : undefined;
-
-  const renderDifficulty = (difficulty: string) => {
-    switch (difficulty) {
-      case "1":
-        return (
-          <Chip
-            icon={<WhatshotIcon />}
-            label={`Difficulty: ${difficultyMapper[difficulty]}`}
-            sx={{
-              width: "fit-content",
-              borderRadius: 2,
-              backgroundColor: "#E5F0E9",
-              color: "#287750",
-              "& .MuiChip-icon": {
-                color: "#287750",
-              },
-            }}
-          />
-        );
-      case "2":
-        return (
-          <Chip
-            icon={<WhatshotIcon />}
-            label={`Difficulty: ${difficultyMapper[difficulty]}`}
-            color="warning"
-            sx={{
-              width: "fit-content",
-              borderRadius: 2,
-              backgroundColor: "#FFF3E0",
-              color: "#FF9800",
-              "& .MuiChip-icon": {
-                color: "#FF9800",
-              },
-            }}
-          />
-        );
-      case "3":
-        return (
-          <Chip
-            icon={<WhatshotIcon fontSize="small" />}
-            label={`Difficulty: ${difficultyMapper[difficulty]}`}
-            color="error"
-            sx={{
-              width: "fit-content",
-              borderRadius: 2,
-              backgroundColor: "#FFE3E3",
-              color: "#B00020",
-              "& .MuiChip-icon": {
-                color: "#B00020",
-              },
-            }}
-          />
-        );
-    }
-  };
 
   if (!question) {
     return (
@@ -85,7 +27,7 @@ const QuestionDetail = () => {
             {question.title}
           </Typography>
           <Stack direction="row" alignItems="center" columnGap={2}>
-            {renderDifficulty(question.difficulty)}
+            <DifficultyChip difficulty={question.difficulty} />
             <Chip
               icon={<CodeIcon />}
               label={question.type}

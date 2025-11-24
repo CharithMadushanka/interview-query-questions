@@ -9,10 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useState } from "react";
-import {
-  difficultyMapper,
-  useQuestions,
-} from "../../contexts/QuestionsContext";
+import { difficultyMapper, useQuestions } from "contexts/QuestionsContext";
 import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from "@mui/icons-material/Clear";
 

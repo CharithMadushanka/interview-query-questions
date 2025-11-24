@@ -8,7 +8,7 @@ This application is a question browser for coding interview questions. It lets u
 
 The app uses React Context API for state management, keeping the architecture simple without external state libraries. Data is loaded from a CSV file using PapaParse, enabling client-side filtering and pagination. Material-UI provides a consistent UI, and TypeScript adds type safety across the codebase.
 
-With more time, I would add authentication, upvote and downvote features, topics for better categorization, question bookmarks, loading and error states, responsiveness for mobile devices, and unit tests for better code coverage.
+With more time, I would add authentication, upvote and downvote features, topics for better categorization, question bookmarks, loading and error states, responsiveness for mobile devices, and expand unit test coverage to more components.
 
 ## Features
 
@@ -27,6 +27,7 @@ With more time, I would add authentication, upvote and downvote features, topics
   - Vote count
   - Company that asked the question
 - 🎨 **UI**: Built with Material-UI for a polished user experience
+- ✅ **Unit Tests**: Component testing with Vitest and React Testing Library
 
 ## Tech Stack
 
@@ -85,6 +86,7 @@ interview-query-questions/
 ├── src/
 │   ├── assets/                # Static assets (fonts, images, SVGs)
 │   ├── components/            # Reusable components
+│   │   ├── DifficultyChip/    # Difficulty chip component with tests
 │   │   ├── FilterForm/        # Search and filter sidebar
 │   │   ├── Navbar/            # Navigation bar
 │   │   └── QuestionsTable/    # Questions table with sorting
