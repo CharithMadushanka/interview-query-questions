@@ -29,7 +29,7 @@ const Navbar = () => {
               alignItems: "center",
               justifyContent: "center",
               borderRadius: "50%",
-              backgroundColor: "#F59E0C",
+              backgroundColor: "primary.main",
               color: "white",
             }}
           >
