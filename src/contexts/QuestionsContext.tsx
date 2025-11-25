@@ -42,7 +42,6 @@ interface QuestionsContextType {
     type: string,
     company: string
   ) => void;
-  resetFilters: () => void;
   sortBy: "difficulty" | "votes";
   sortOrder: "asc" | "desc";
   setSortBy: (sortBy: "difficulty" | "votes") => void;
@@ -165,10 +164,6 @@ export const QuestionsProvider = ({ children }: { children: ReactNode }) => {
     );
   };
 
-  const resetFilters = () => {
-    setFilteredQuestions(questions);
-  };
-
   return (
     <QuestionsContext.Provider
       value={{
@@ -180,7 +175,6 @@ export const QuestionsProvider = ({ children }: { children: ReactNode }) => {
         typeOptions,
         companyOptions,
         filterQuestions,
-        resetFilters,
         sortBy,
         sortOrder,
         setSortBy,

@@ -14,13 +14,8 @@ import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from "@mui/icons-material/Clear";
 
 const FilterForm = () => {
-  const {
-    difficultyOptions,
-    typeOptions,
-    companyOptions,
-    filterQuestions,
-    resetFilters,
-  } = useQuestions();
+  const { difficultyOptions, typeOptions, companyOptions, filterQuestions } =
+    useQuestions();
 
   const [difficulty, setDifficulty] = useState<string>("");
   const [type, setType] = useState<string>("");
@@ -31,7 +26,7 @@ const FilterForm = () => {
     setDifficulty("");
     setType("");
     setCompany("");
-    resetFilters();
+    filterQuestions(searchValue, "", "", "");
   };
 
   const handleClearSearch = () => {
